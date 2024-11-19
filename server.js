@@ -5,7 +5,6 @@ const authRoutes = require("./routes/authRoutes");
 const entidadRoutes = require("./routes/entidadRoutes");
 
 const app = express();
-const { createServer } = require("@vercel/node");
 connectDB();
 
 app.use(express.json());
