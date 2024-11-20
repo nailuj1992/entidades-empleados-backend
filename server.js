@@ -10,8 +10,7 @@ const app = express();
 connectDB();
 
 // Habilitar CORS para todas las solicitudes
-app.use(cors());
-app.options("*", cors());
+app.use(cors({ origin: true }));
 
 app.use(express.json());
 app.get("/", (req, res) => {
