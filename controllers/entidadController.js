@@ -34,7 +34,7 @@ exports.create = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, empleados } = req.body;
+    const { name, nit, empleados } = req.body;
 
     const entidad = await Entidad.findById(id);
     if (!entidad) {
@@ -43,6 +43,7 @@ exports.update = async (req, res) => {
 
     // Actualizar la información de la entidad
     if (name) entidad.name = name;
+    if (nit) entidad.nit = nit;
 
     if (empleados) {
       // Eliminar empleados antiguos
@@ -74,7 +75,6 @@ exports.remove = async (req, res) => {
     await Empleado.deleteMany({ _id: { $in: entidad.empleados } });
 
     // Eliminar la entidad
-    //await entidad.remove();
     await Entidad.findByIdAndDelete(id);
 
     res.json({ message: "Entidad eliminada exitosamente" });
