@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get("/:id", getOne);
 router.get("/health", health);
+router.put("/:id", authMiddleware, roleMiddleware("admin"), update);
 router.delete("/:id", authMiddleware, roleMiddleware("admin"), remove);
 
 module.exports = router;
