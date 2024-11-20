@@ -1,5 +1,5 @@
 const express = require("express");
-const { getOne, remove, health } = require("../controllers/empleadoController");
+const { getOne, update, remove, health } = require("../controllers/empleadoController");
 const authMiddleware = require("../middlewares/authMiddleware");
 const roleMiddleware = require("../middlewares/roleMiddleware");
 
