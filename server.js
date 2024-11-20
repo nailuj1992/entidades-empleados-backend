@@ -10,12 +10,7 @@ const app = express();
 connectDB();
 
 // Habilitar CORS para todas las solicitudes
-app.use(cors({
-    origin: ["http://localhost:3000", "https://entidades-empleados-frontend.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-}));
-
+app.use(cors());
 app.options("*", cors());
 
 app.use(express.json());
