@@ -15,7 +15,7 @@ exports.getAll = async (req, res) => {
 exports.getOne = async (req, res) => {
   try {
     const { id } = req.params;
-    const entidad = await Entidad.findById(id);
+    const entidad = await Entidad.findById(id)?.populate("empleados");
     if (!entidad) {
       return res.status(404).json({ message: "Entidad no encontrada" });
     }
