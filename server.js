@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const entidadRoutes = require("./routes/entidadRoutes");
+const empleadoRoutes = require("./routes/empleadoRoutes");
 
 const app = express();
 connectDB();
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
     res.send("API funcionando en Vercel");
 });
 app.use("/api/entidades", entidadRoutes);
+app.use("/api/empleados", empleadoRoutes);
 app.use("/api/auth", authRoutes);
 
 //const PORT = process.env.PORT || 5000;
