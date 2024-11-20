@@ -11,6 +11,20 @@ exports.getAll = async (req, res) => {
   }
 };
 
+// Obtener una entidad por su id
+exports.getOne = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const entidad = await Entidad.findById(id);
+    if (!entidad) {
+      return res.status(404).json({ message: "Entidad no encontrada" });
+    }
+    res.json(entidad);
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener la entidad", error });
+  }
+};
+
 // Crear una nueva entidad
 exports.create = async (req, res) => {
   try {
