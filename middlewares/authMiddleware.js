@@ -10,6 +10,12 @@ module.exports = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    return res.status(403).json({ message: "Token inválido" });
+    if (error.name === "TokenExpiredError") {
+      return res.status(403).json({ message: "Token expirado" });
+    }
+    if (error.name === "JsonWebTokenError") {
+      return res.status(403).json({ message: "Token inválido o malformado" });
+    }
+    return res.status(403).json({ message: "No autorizado - Token no válido" });
   }
 };
