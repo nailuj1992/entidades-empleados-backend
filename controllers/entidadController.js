@@ -74,7 +74,8 @@ exports.remove = async (req, res) => {
     await Empleado.deleteMany({ _id: { $in: entidad.empleados } });
 
     // Eliminar la entidad
-    await entidad.remove();
+    //await entidad.remove();
+    await Entidad.findByIdAndDelete(id);
 
     res.json({ message: "Entidad eliminada exitosamente" });
   } catch (error) {
