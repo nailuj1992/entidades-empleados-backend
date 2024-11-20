@@ -4,14 +4,16 @@ Url donde se encuentra desplegado: https://entidades-empleados-backend.vercel.ap
 
 Servicios disponibles:
 
-GET /api/entidades/
-GET /api/entidades/:id
-POST /api/entidades
-PUT /api/entidades/:id
-DELETE /api/entidades/:id
-GET /api/entidades/health
+- Entidades:
+  - GET /api/entidades/
+  - GET /api/entidades/:id
+  - POST /api/entidades
+  - PUT /api/entidades/:id
+  - DELETE /api/entidades/:id
+  - GET /api/entidades/health
 
-GET /api/empleados/:id
-PUT /api/empleados/:id
-DELETE /api/empleados/:id
-GET /api/empleados/health
+- Empleados
+  - GET /api/empleados/:id
+  - PUT /api/empleados/:id
+  - DELETE /api/empleados/:id
+  - GET /api/empleados/health
