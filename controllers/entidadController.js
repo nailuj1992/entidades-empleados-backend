@@ -14,14 +14,14 @@ exports.getAll = async (req, res) => {
 // Crear una nueva entidad
 exports.create = async (req, res) => {
   try {
-    const { name, empleados } = req.body;
+    const { name, nit, empleados } = req.body;
 
     // Crear empleados si son proporcionados
     const empleadoDocs = empleados
       ? await Empleado.insertMany(empleados.map((emp) => ({ ...emp })))
       : [];
 
-    const entidad = new Entidad({ name, empleados: empleadoDocs.map((emp) => emp._id) });
+    const entidad = new Entidad({ name, nit, empleados: empleadoDocs.map((emp) => emp._id) });
     await entidad.save();
 
     res.status(201).json({ message: "Entidad creada exitosamente", entidad });
