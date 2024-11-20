@@ -11,7 +11,7 @@ connectDB();
 
 // Habilitar CORS para todas las solicitudes
 app.use(cors({
-    origin: ["*"],
+    origin: ["http://localhost:3000", "https://entidades-empleados-frontend.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
